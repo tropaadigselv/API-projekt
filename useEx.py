@@ -20,10 +20,10 @@ def setup():
     A=[[]]
     i=0
     params = {
-    'access_key': '80285e8854bd331139dfe66086ac3b71',
+    'access_key': '5b9995494934e5feef1829d04ddbf000',
     'limit':100,
     'offset':0,
-    #'flight_status':'active'
+    'flight_status':'active'
     }
     api_result = requests.get('http://api.aviationstack.com/v1/flights', params)
 
