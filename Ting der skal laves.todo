@@ -1,0 +1,27 @@
+Hvad der mangler
+
+
+Kort:
+    ☐ @critical Indsæt Kort
+    ☐ @high Får kort til at bevæge sig med mus
+
+Fly:
+    ☐ @critical Lav Fly objekt med relevant data fra fly
+        koordinatter
+        flyselskab
+        fly nr
+        til og fra lufthavn
+    ☐ @critical display fly på kort med rigtige koordinatter
+    ☐ @high vis fly nr ved hover
+    ☐ @high vis fly data ved klik på fly icon
+
+
+
+
+More Actions:
+    * Complete a task by pressing Alt+d @done
+    * Re-open a completed task by pressing Alt+d
+    * Cancel a task by pressing Alt+c @cancelled
+    * Complete a cancelled task by pressing Alt+d
+    * You can also use the Command pallette to complete or cancel a task by typing 
+    To Do:Complete Task or To Do:Cancel Task 
