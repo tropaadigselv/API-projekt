@@ -15,9 +15,17 @@ screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('Fly kort')
 
 
-class planes:
-    #def __init__(self,):
-    print("hej")
+class plane:
+    def __init__(self,line,nr,fr,to,lat,lng):
+        self.line=line
+        self.nr=nr
+        self.fr=fr
+        self.to=to
+        self.lat=lat
+        self.long=lng
+    
+    def show(self):
+        print("hej")
 
 class Map:
     def __init__(self, x,y):
@@ -50,18 +58,28 @@ class Map:
     
 
 def setup():
-    global kort
+    global kort, planes
     kort =Map(0,0)
+    planes=[]
     params = {
         'access_key': '5b9995494934e5feef1829d04ddbf000',
         'limit':100,
-        'offset':0,
+        'offset':10,
         'flight_status':'active'
     }
-    #api_result = requests.get('http://api.aviationstack.com/v1/flights', params)
+    api_result = requests.get('http://api.aviationstack.com/v1/flights', params)
 
-    #api_response = api_result.json()
-    #print(api_response)
+    api_response = api_result.json()
+    for flight in api_response['data']:
+        if flight['live']!=None:
+            planes.append(plane(flight['airline']['name'],
+                                flight['flight']['number'],
+                                flight['departure']['airport'],
+                                flight['arrival']['airport'],
+                                flight['live']['latitude'],
+                                flight['live']['longitude']))
+    print(planes)
+
 
 
 def draw():

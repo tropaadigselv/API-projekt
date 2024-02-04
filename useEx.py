@@ -31,8 +31,8 @@ def setup():
     print(api_response)
     for flight in api_response['data']:
             print(u'%s flight %s from %s (%s) to %s (%s) is in the air. coordinates are: lati = %s and long = %s' % (
-                A[i][0],
-                A[i][1],
+                flight['airline']['name'],
+                flight['flight']['number'],
                 flight['departure']['airport'],
                 flight['departure']['iata'],
                 flight['arrival']['airport'],

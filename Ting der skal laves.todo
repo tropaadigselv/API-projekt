@@ -6,7 +6,7 @@ Kort:
     ✔ @high Får kort til at bevæge sig med mus @done (2/4/2024, 11:38:00 AM)
 
 Fly:
-    ☐ @critical Lav Fly objekt med relevant data fra fly
+    ✔ @critical Lav Fly objekt med relevant data fra fly @done (2/4/2024, 7:23:17 PM)
         koordinatter
         flyselskab
         fly nr
@@ -16,9 +16,11 @@ Fly:
     ☐ @high vis fly data ved klik på fly icon
 
 
-
+Andet:
+    ☐ zoom ind og ud med scroll wheel
 
 More Actions:
+    *create task with Ctrl+enter
     * Complete a task by pressing Alt+d @done
     * Re-open a completed task by pressing Alt+d
     * Cancel a task by pressing Alt+c @cancelled
