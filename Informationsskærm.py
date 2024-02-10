@@ -24,6 +24,15 @@ pygame.display.set_caption('Fly afgange')
 #font til tekst
 font= pygame.font.SysFont("Arial",18)
 
+#tekst
+class text():
+    def __init__(self,text):
+        self.text=text
+    #laver og viser tekst
+    def show(self,x,y):
+        surface=font.render(self.text,True,(0,0,0))
+        screen.blit(surface,(x,y))
+
 #ændre skærmene
 def change(text):
     global planes, status
@@ -51,9 +60,9 @@ class plane():
 
     #viser fly information 
     def show(self,y):
-        text=f"Fly {self.nr} ({self.airline['name']}) fra {self.departure['airport']} til {self.arrival['airport']} flyver fra gate {self.departure['gate']} terminal {self.departure['terminal']} klokken {self.get_time()[1]} {self.get_time()[0]}"
-        text_surface=font.render(text,True,(0,0,0))
-        screen.blit(text_surface,(10,y))
+        t=f"Fly {self.nr} ({self.airline['name']}) fra {self.departure['airport']} til {self.arrival['airport']} flyver fra gate {self.departure['gate']} terminal {self.departure['terminal']} klokken {self.get_time()[1]} {self.get_time()[0]}"
+        a=text(t)
+        a.show(10,y)
     #henter logo med api ninjas
     def logo(self):
         name = self.airline['name']
@@ -80,9 +89,9 @@ class button():
     #tegner knap
     def show(self):
         pygame.draw.rect(screen,(255,255,255),self.rect)
-        text="Bekræft"
-        text_surface=font.render(text,True,(0,0,0,))
-        screen.blit(text_surface,(710,30))
+        t="Bekræft"
+        a=text(t)
+        a.show(710,30)
 
     #hvad der sker når den klikkes på
     def click(self):
@@ -108,20 +117,11 @@ class textInput():
             else:
                 self.text+=event.unicode
 
-#tekst
-class text():
-    def __init__(self,text):
-        self.text=text
-    #laver og viser tekst
-    def show(self,y):
-        surface=font.render(self.text,True,(0,0,0))
-        screen.blit(surface,(100,y))
-
 # hvis der ikke er nogel fly kaldes den
 def sorry():
-    text="Undskyld men der kunne ikke findes nogle fly, prøv at genstarte programmet og ændre på 'limit' eller 'offset' i params i setup()"
-    text_surface=font.render(text,True,(0,0,0))
-    screen.blit(text_surface,(10,height//2))
+    t="Undskyld men der kunne ikke findes nogle fly, prøv at genstarte programmet og ændre på 'limit' eller 'offset' i params i setup()"
+    a=text(t)
+    a.show(10,height//2)
 
 #henter fly fra aviationstack api
 def getPlanes(text):
@@ -143,7 +143,6 @@ def getPlanes(text):
     if len(a) >12:
         for i in range(len(a)-12):
             a.pop()
-    print(len(a))
     for i in range(len(a)):
         a[i].logo()
     return a
@@ -160,8 +159,8 @@ def start_screen():
     global writing
     screen.fill((150,210,250))
     info = "Skriv flyselskab du vil se afgange for, du kan også bare klikke bekræft uden noget og se for alle flyselskaber"
-    info_surface=font.render(info,True,(0,0,0))
-    screen.blit(info_surface,(100,5))
+    a=text(info)
+    a.show(100,5)
     button.show()   
     text_inp.show()
     w0= "Knapperne og Tekst feltet er virker måske ikke altid, klik først på tekst feltet for at skrive"
@@ -176,7 +175,7 @@ def start_screen():
     for i in range(len(q)):
         e.append(text(q[i]))
     for i in range(len(e)):
-        e[i].show(y)
+        e[i].show(100,y)
         y+=20
 
     #tjekker om der klikkes på kanp eller tekst input
@@ -219,8 +218,8 @@ def main_screen():
 def loading_screen():
     screen.fill((150,210,250))
     load = "Henter fly og logos til fly"
-    load_surface = font.render(load,True,(0,0,0))
-    screen.blit(load_surface,(width//2-100,height//2))
+    a=text(load)
+    a.show(width//2-100,height//2)
     pygame.display.flip()
 
 
