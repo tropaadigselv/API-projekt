@@ -1,0 +1,23 @@
+[
+  {
+    "iata": "SK",
+    "icao": "SAS",
+    "fleet": {
+      "A20N": 50,
+      "A21N": 3,
+      "A319": 4,
+      "A320": 11,
+      "A321": 8,
+      "A333": 8,
+      "A359": 6,
+      "AT76": 7,
+      "B737": 9,
+      "B738": 4,
+      "CRJ9": 28,
+      "E195": 6,
+      "total": 144
+    },
+    "logo_url": "https://api-ninjas.com/images/airline_logos/sas.jpg",
+    "name": "SAS"
+  }
+]

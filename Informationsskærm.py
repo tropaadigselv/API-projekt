@@ -67,7 +67,7 @@ class plane():
     def logo(self):
         name = self.airline['name']
         api_url = 'https://api.api-ninjas.com/v1/airlines?name={}'.format(name)
-        result = requests.get(api_url, headers={'X-Api-Key': 'POvaQ7/3DwkLtXHxaMV9mA==d9RHRAfTSp2igfmP'})
+        result = requests.get(api_url, headers={'X-Api-Key': 'POvaQ7/3DwkLtXHxaMV9mA==d9RHRAfTSp2igfmP'}) # Indsæt din egen key her
         response = result.json()
     #laver det om til et billede
         try:
@@ -103,13 +103,13 @@ class textInput():
     def __init__(self):
         self.text=""
         self.rect=Rect(100,30,500,30)
-    #hvser tekst input boks 
+    # hvser tekst input boks 
     def show(self):
         pygame.draw.rect(screen,(255,255,255),self.rect)
         pygame.draw.rect(screen,(0,0,0),self.rect,1)
         text_surface=font.render(self.text,True,(0,0,0))
         screen.blit(text_surface,(110,30))
-    #gør så man kan skrive i den
+    # gør så man kan skrive i den
     def write(self,event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_BACKSPACE:
@@ -127,7 +127,7 @@ def sorry():
 def getPlanes(text):
     a=[]
     params = {
-    'access_key': '5b9995494934e5feef1829d04ddbf000',
+    'access_key': '5b9995494934e5feef1829d04ddbf000', # Indsæt din egen key her
     'limit':50,
     'offset':100,
     'airline_name':text
@@ -178,11 +178,12 @@ def start_screen():
         e[i].show(100,y)
         y+=20
 
-    #tjekker om der klikkes på kanp eller tekst input
+    #tjekker om der klikkes på knap eller tekst input
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            #kalder knappen
             if button.rect.collidepoint(event.pos):
                 button.click()
                 writing = False
@@ -190,6 +191,7 @@ def start_screen():
                 writing = True
             else:
                 writing = False
+        # kalder textInput hvis der er blevet klikket på den
         if writing:
             text_inp.write(event)
 
